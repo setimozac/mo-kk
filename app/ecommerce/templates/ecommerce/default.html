@@ -4,20 +4,36 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="{% static 'ecommerce/default.css' %}">
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'ecommerce/default.css' %}"
+    />
+    <script src="{% static 'ecommerce/default.js' %}" defer></script>
     <title>Setimok</title>
   </head>
   <body>
-       <div id="horizantal_menu">
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#products">Products</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li><a href="#about">About</a></li>
-        </ul>
-        </div>
-    {% block content %}
-    {% endblock %}
+    <div id="header_design">
+      <picture>
+        <source
+          media="(min-width: 650px)"
+          srcset="https://via.placeholder.com/100"
+        />
+        <source
+          media="(min-width: 350px)"
+          srcset="https://via.placeholder.com/70"
+        />
+        <img src="https://via.placeholder.com/100" alt="Seimo Design" />
+      </picture>
+
+      <ul id="nave_menu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </div>
     
+    {% block content %} {% endblock %}
   </body>
 </html>

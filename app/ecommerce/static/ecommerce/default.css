@@ -1,6 +1,14 @@
-#horizantal_menu{
-   background-color: brown;
+#nave_menu {
+    margin: 40px 0 0 0;
+    font-family: "Avant Garde",Avantgarde,"Century Gothic",CenturyGothic,"AppleGothic",sans-serif;
+    font-weight: 400;
+    letter-spacing: 1px;
+    line-height: 1.4;
 }
-li {
-    background-color: chartreuse;
+#nave_menu li {
+  display: inline;
+}
+#header_design {
+    display: flex;
+    background-color: #c0c1be;
 }
