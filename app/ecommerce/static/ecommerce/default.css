@@ -1,14 +1,93 @@
 #nave_menu {
-    margin: 40px 0 0 0;
-    font-family: "Avant Garde",Avantgarde,"Century Gothic",CenturyGothic,"AppleGothic",sans-serif;
-    font-weight: 400;
-    letter-spacing: 1px;
-    line-height: 1.4;
+  margin: 40px 0 0 0;
+
+  font-weight: 400;
+  letter-spacing: 1px;
+  line-height: 1.4;
 }
 #nave_menu li {
   display: inline;
 }
 #header_design {
-    display: flex;
-    background-color: #c0c1be;
+  display: flex;
+  background-color: #757772;
+}
+a {
+  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic,
+    "AppleGothic", sans-serif;
+  text-decoration: none;
+  margin: 0 4px;
+  font-size: 20px;
+  color: #c5c5c5;
+}
+a:visited {
+  color: #c5c5c5;
+}
+a:hover {
+  color: white;
+}
+#setimo_logo {
+  margin: 3px 0 0 3px;
+}
+
+/* ------------------------------
+            Side menu 
+-------------------------------- */
+
+.side_nav_holder {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  right: 0;
+  background-color: black;
+  overflow-x: hidden;
+  padding-top: 60px;
+  transition: 0.5s;
+}
+
+/* The navigation menu links */
+.side_nav_holder a {
+  padding: 8px 8px 8px 50px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.side_nav_holder a:hover {
+  color: white;
+}
+
+/* Position and style the close button (top right corner) */
+.side_nav_holder .close_btn {
+  position: absolute;
+  top: 0;
+  font-size: 36px;
+  padding: 8px 0 0 10px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the side_nav_holder (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .side_nav_holder {
+    padding-top: 15px;
+  }
+  .side_nav_holder a {
+    font-size: 18px;
+  }
+}
+.menu_icon {
+  width: 35px;
+  height: 5px;
+  background-color: black;
+  margin: 6px 0;
+}
+
+#nav_opener {
+  position: absolute;
+  right: 24px;
+  top: 39px;
 }

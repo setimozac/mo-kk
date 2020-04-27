@@ -9,6 +9,11 @@
       type="text/css"
       href="{% static 'ecommerce/default.css' %}"
     />
+    <script
+      src="https://code.jquery.com/jquery-3.5.0.js"
+      integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc="
+      crossorigin="anonymous"
+    ></script>
     <script src="{% static 'ecommerce/default.js' %}" defer></script>
     <title>Setimok</title>
   </head>
@@ -23,17 +28,35 @@
           media="(min-width: 350px)"
           srcset="https://via.placeholder.com/70"
         />
-        <img src="https://via.placeholder.com/100" alt="Seimo Design" />
+        <img
+          src="https://via.placeholder.com/100"
+          alt="Seimo Design"
+          id="setimo_logo"
+        />
       </picture>
 
       <ul id="nave_menu">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#products">Products</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="#about">About</a></li>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Products</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">About</a></li>
       </ul>
+
+      <div id="nav_opener">
+        <div class="menu_icon"></div>
+        <div class="menu_icon"></div>
+        <div class="menu_icon"></div>
+      </div>
     </div>
-    
+
+    <div id="js_side_nav" class="side_nav_holder">
+      <a class="close_btn" id="nav_closer">&times;</a>
+      <a href="#">About</a>
+      <a href="#">Login</a>
+      <a href="#">Clients</a>
+      <a href="#">Contact</a>
+    </div>
+
     {% block content %} {% endblock %}
   </body>
 </html>
