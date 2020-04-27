@@ -1,6 +1,18 @@
+body {
+  background-color: whitesmoke;
+  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic,
+    "AppleGothic", sans-serif;
+}
+
+#links_container { /* in case if we want to keep the menu sticky, TBD */
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+
 #nave_menu {
   margin: 40px 0 0 0;
-
   font-weight: 400;
   letter-spacing: 1px;
   line-height: 1.4;
@@ -13,8 +25,6 @@
   background-color: #757772;
 }
 a {
-  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic,
-    "AppleGothic", sans-serif;
   text-decoration: none;
   margin: 0 4px;
   font-size: 20px;
@@ -90,4 +100,19 @@ a:hover {
   position: absolute;
   right: 24px;
   top: 39px;
+}
+
+/* ------------------------------
+            Footer
+-------------------------------- */
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #757772;
+  color: white;
+  text-align: center;
+  font-size: 13px;
 }
