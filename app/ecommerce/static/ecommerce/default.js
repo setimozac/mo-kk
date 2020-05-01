@@ -10,3 +10,12 @@ function closeNav() {
 
 $("#nav_opener").on("click", openNav);
 $("#nav_closer").on("click", closeNav);
+
+// Get the modal When the user clicks anywhere outside of the modal, close it
+var modal = document.getElementById(""); // target the container element
+$("").on("click", function (event) {
+  if (event.target == modal) {
+    closeNav();
+  }
+});
+
