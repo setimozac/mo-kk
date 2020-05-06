@@ -1,0 +1,11 @@
+{% extends "ecommerce/default.html" %}
+
+{% block content %}
+    <div>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form }}
+            <button type="submit">submit!</button>
+        </form>
+    </div>
+{% endblock content %}
