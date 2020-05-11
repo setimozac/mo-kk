@@ -1,11 +1,40 @@
-{% extends "ecommerce/default.html" %}
+{% extends "ecommerce/default.html" %} {% block content %}
+<div>
+  <form method="POST">
+    {% csrf_token %} {{ form }}
+    <!-- <button type="submit">submit!</button> -->
+    <input type="button" value="Click here" id="the_btn" />
+  </form>
+</div>
+<script>
+  $("#the_btn").on("click", function () {
+    sendInfo();
+  });
 
-{% block content %}
-    <div>
-        <form method="POST">
-            {% csrf_token %}
-            {{ form }}
-            <button type="submit">submit!</button>
-        </form>
-    </div>
+  function sendInfo() {
+    var email1 = $("#id_email").val();
+    var pass1 = $("#id_password1").val();
+    var pass2 = pass1;
+    $.ajax({
+      type: "POST",
+      url: "http://localhost:9998/users/register/",
+      data: {
+        email: email1,
+        password1: pass1,
+        password2: pass1,
+      },
+      error: function (error) {
+        console.log("ridi");
+      },
+      success: function (result) {
+        if (!result.success) {
+          console.log("sucess");
+        } else {
+          window.location.reload();
+        }
+      },
+    });
+  }
+</script>
+
 {% endblock content %}
