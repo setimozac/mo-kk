@@ -1,12 +1,30 @@
 {% extends "ecommerce/default.html" %} {% block content %}
 <div>
   <form method="POST">
-    {% csrf_token %} {{ form }}
-    <!-- <button type="submit">submit!</button> -->
-    <input type="button" value="Click here" id="the_btn" />
+    {% comment %} {% csrf_token %} {% endcomment %}
+    {{ form }}
+    {% comment %} <button type="submit" id="the_btn" >submit!</button>  {% endcomment %}
+    <input type="button" value="Click here!" id="the_btn" />
   </form>
 </div>
 <script>
+  function getCookie(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = cookies[i].trim();
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+
+  
   $("#the_btn").on("click", function () {
     sendInfo();
   });
@@ -22,6 +40,7 @@
         email: email1,
         password1: pass1,
         password2: pass1,
+        csrfmiddlewaretoken: getCookie('csrftoken')
       },
       error: function (error) {
         console.log("ridi");
@@ -36,5 +55,4 @@
     });
   }
 </script>
-
 {% endblock content %}
