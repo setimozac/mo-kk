@@ -1,62 +1,50 @@
-{% extends "ecommerce/default.html" %} 
-{% block content %}
-{% load static %}
-<script src="{% static 'users/js/register.js' %}" type="text/javascript" ></script>
-<link rel="stylesheet" href="{% static 'users/css/register.css' %}">
-<div>
-  <form method="POST">
-    {% comment %} {% csrf_token %} {% endcomment %}
-    {{ form }}
-    {% comment %} <button type="submit" id="the_btn" >submit!</button>  {% endcomment %}
-    <input type="button" value="Click here!" id="the_btn" />
-  </form>
-</div>
-<script>
-  function getCookie(name) {
-    var cookieValue = null;
-    if (document.cookie && document.cookie !== '') {
-        var cookies = document.cookie.split(';');
-        for (var i = 0; i < cookies.length; i++) {
-            var cookie = cookies[i].trim();
-            // Does this cookie string begin with the name we want?
-            if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                break;
-            }
-        }
-    }
-    return cookieValue;
-}
+{% extends "ecommerce/default.html" %} {% block content %} {% load static %}
+<script
+  src="{% static 'users/js/register.js' %}"
+  type="text/javascript"
+  defer
+></script>
+<link rel="stylesheet" href="{% static 'users/css/register.css' %}" />
 
-  
-  $("#the_btn").on("click", function () {
-    sendInfo();
-  });
+<form class="modal_content">
+  <div class="container">
+    <h1>Sign Up</h1>
+    <p>Please fill in this form to create an account.</p>
+    <hr />
+    <label for="email" id="email_label"><b>Email</b></label>
 
-  function sendInfo() {
-    var email1 = $("#id_email").val();
-    var pass1 = $("#id_password1").val();
-    var pass2 = pass1;
-    $.ajax({
-      type: "POST",
-      url: "http://localhost:9998/users/register/",
-      data: {
-        email: email1,
-        password1: pass1,
-        password2: pass1,
-        csrfmiddlewaretoken: getCookie('csrftoken')
-      },
-      error: function (error) {
-        console.log("ridi");
-      },
-      success: function (result) {
-        if (!result.success) {
-          console.log("sucess");
-        } else {
-          window.location.reload();
-        }
-      },
-    });
-  }
-</script>
+    <input
+      type="text"
+      id="user_email"
+      placeholder="Enter Email"
+      name="email"
+      value=""
+      required
+    />
+
+    <label id="psw1_lable" for="password"><b>Password</b></label>
+    <input
+      type="password"
+      placeholder="Enter Password"
+      id="user_psw"
+      value=""
+      required
+    />
+
+    <label id="psw2_lable" for="password repeat"><b>Repeat Password</b></label>
+    <input
+      type="password"
+      placeholder="Repeat Password"
+      id="user_psw_repeat"
+      value=""
+      required
+    />
+
+    <div class="clearfix">
+      <input type="button" class="sign_up_btn" id="sign_up" value="Sign Up" />
+      <input type="button" class="cancel_btn" id="cancel" value="Cancel" />
+    </div>
+  </div>
+</form>
+
 {% endblock content %}
