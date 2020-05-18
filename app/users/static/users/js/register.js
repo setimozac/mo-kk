@@ -16,14 +16,14 @@ function getCookie(name) {
 function sendInfo() {
   var email1 = $("#user_email").val();
   var pass1 = $("#user_psw").val();
-  var pass2 = pass1;
+  var pass2 = $("#user_psw_repeat").val();
   $.ajax({
     type: "POST",
     url: "http://localhost:9998/users/register/",
     data: {
       email: email1,
       password1: pass1,
-      password2: pass1,
+      password2: pass2,
       csrfmiddlewaretoken: getCookie("csrftoken"),
     },
     error: function (error) {
