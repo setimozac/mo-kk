@@ -10,6 +10,9 @@ def register(request):
             username = form.cleaned_data.get('username')
             messages.success(request, f'account has been created for {username}')
             return redirect('home')
+        else:
+            messages.success(request, f'ridi dada')
+
     else:
         form = UserCreateForm()
     return render(request, 'users/register.html', {'form': form})
