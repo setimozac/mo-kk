@@ -26,15 +26,13 @@ function sendInfo() {
       password2: pass2,
       csrfmiddlewaretoken: getCookie("csrftoken"),
     },
-    error: function (error) {
-      console.log("ridi");
+    error: function () {
+      console.log("--error in the AJAX call--");
+      alert('Oops! Something went wrong. Please try again')
+      location.reload();
     },
-    success: function (result) {
-      if (!result.success) {
-        console.log("sucess");
-      } else {
-        window.location.reload();
-      }
+    success: function () {
+      window.location.replace("/");
     },
   });
 }
